@@ -4,16 +4,19 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/davecgh/go-spew/spew"
-	"github.com/google/gofuzz"
-	"github.com/json-iterator/go"
 	"reflect"
 	"strings"
 	"testing"
+
+	"github.com/davecgh/go-spew/spew"
+	fuzz "github.com/google/gofuzz"
+	"github.com/onfirebyte/jsoniter"
 )
 
-var testCases []interface{}
-var asymmetricTestCases [][2]interface{}
+var (
+	testCases           []interface{}
+	asymmetricTestCases [][2]interface{}
+)
 
 type selectedSymmetricCase struct {
 	testCase interface{}

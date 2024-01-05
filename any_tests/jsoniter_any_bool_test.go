@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/json-iterator/go"
+	"github.com/onfirebyte/jsoniter"
 	"github.com/stretchr/testify/require"
 )
 
@@ -45,7 +45,6 @@ func Test_read_bool_as_any(t *testing.T) {
 			should.False(any.ToBool(), fmt.Sprintf("origin val is %v", k))
 		}
 	}
-
 }
 
 func Test_write_bool_to_stream(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"testing"
 
-	jsoniter "github.com/json-iterator/go"
+	jsoniter "github.com/onfirebyte/jsoniter"
 	"github.com/stretchr/testify/require"
 )
 
@@ -52,8 +52,10 @@ func Test_read_float(t *testing.T) {
 }
 
 func Test_write_float32(t *testing.T) {
-	vals := []float32{0, 1, -1, 99, 0xff, 0xfff, 0xffff, 0xfffff, 0xffffff, 0x4ffffff, 0xfffffff,
-		-0x4ffffff, -0xfffffff, 1.2345, 1.23456, 1.234567, 1.001}
+	vals := []float32{
+		0, 1, -1, 99, 0xff, 0xfff, 0xffff, 0xfffff, 0xffffff, 0x4ffffff, 0xfffffff,
+		-0x4ffffff, -0xfffffff, 1.2345, 1.23456, 1.234567, 1.001,
+	}
 	for _, val := range vals {
 		t.Run(fmt.Sprintf("%v", val), func(t *testing.T) {
 			should := require.New(t)
@@ -93,8 +95,10 @@ func Test_write_float32(t *testing.T) {
 }
 
 func Test_write_float64(t *testing.T) {
-	vals := []float64{0, 1, -1, 99, 0xff, 0xfff, 0xffff, 0xfffff, 0xffffff, 0x4ffffff, 0xfffffff,
-		-0x4ffffff, -0xfffffff, 1.2345, 1.23456, 1.234567, 1.001}
+	vals := []float64{
+		0, 1, -1, 99, 0xff, 0xfff, 0xffff, 0xfffff, 0xffffff, 0x4ffffff, 0xfffffff,
+		-0x4ffffff, -0xfffffff, 1.2345, 1.23456, 1.234567, 1.001,
+	}
 	for _, val := range vals {
 		t.Run(fmt.Sprintf("%v", val), func(t *testing.T) {
 			should := require.New(t)

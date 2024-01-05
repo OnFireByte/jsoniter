@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/json-iterator/go"
+	"github.com/onfirebyte/jsoniter"
 	"github.com/stretchr/testify/require"
 )
 
@@ -57,7 +57,6 @@ func Test_read_any_to_int(t *testing.T) {
 		any := jsoniter.Get([]byte(k))
 		should.Equal(int64(v), any.ToInt64(), fmt.Sprintf("original val is %v", k))
 	}
-
 }
 
 var uintConvertMap = map[string]int{
@@ -108,7 +107,6 @@ func Test_read_any_to_uint(t *testing.T) {
 		any := jsoniter.Get([]byte(k))
 		should.Equal(uint(v), any.ToUint(), fmt.Sprintf("origin val %v", k))
 	}
-
 }
 
 func Test_read_int64_to_any(t *testing.T) {
@@ -129,6 +127,7 @@ func Test_read_int64_to_any(t *testing.T) {
 	any.WriteTo(stream)
 	should.Equal("12345", string(stream.Buffer()))
 }
+
 func Test_read_int32_to_any(t *testing.T) {
 	should := require.New(t)
 	any := jsoniter.WrapInt32(12345)
@@ -193,6 +192,6 @@ func Test_int_lazy_any_get(t *testing.T) {
 	should := require.New(t)
 	any := jsoniter.Get([]byte("1234"))
 	// panic!!
-	//should.Equal(any.LastError(), io.EOF)
+	// should.Equal(any.LastError(), io.EOF)
 	should.Equal(jsoniter.InvalidValue, any.Get(1, "2").ValueType())
 }

@@ -2,8 +2,9 @@ package test
 
 import (
 	"bytes"
-	"github.com/json-iterator/go"
 	"testing"
+
+	"github.com/onfirebyte/jsoniter"
 )
 
 func Benchmark_encode_string_with_SetEscapeHTML(b *testing.B) {
@@ -12,7 +13,7 @@ func Benchmark_encode_string_with_SetEscapeHTML(b *testing.B) {
 		B bool
 		I int
 	}
-	var json = jsoniter.ConfigCompatibleWithStandardLibrary
+	json := jsoniter.ConfigCompatibleWithStandardLibrary
 	b.ReportAllocs()
 	for i := 0; i < b.N; i++ {
 		buf := &bytes.Buffer{}

@@ -3,12 +3,12 @@ package misc_tests
 import (
 	"bytes"
 	"reflect"
-	"testing"
-
-	"github.com/json-iterator/go"
-	"github.com/stretchr/testify/require"
 	"strings"
+	"testing"
 	"time"
+
+	"github.com/onfirebyte/jsoniter"
+	"github.com/stretchr/testify/require"
 )
 
 func Test_empty_object(t *testing.T) {
@@ -38,7 +38,6 @@ func Test_one_field(t *testing.T) {
 		iter.Skip()
 		return true
 	}))
-
 }
 
 func Test_two_field(t *testing.T) {

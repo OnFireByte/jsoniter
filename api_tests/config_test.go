@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/json-iterator/go"
+	"github.com/onfirebyte/jsoniter"
 	"github.com/stretchr/testify/require"
 )
 
@@ -25,7 +25,6 @@ func Test_customize_float_marshal(t *testing.T) {
 }
 
 func Test_customize_tag_key(t *testing.T) {
-
 	type TestObject struct {
 		Field string `orm:"field"`
 	}
